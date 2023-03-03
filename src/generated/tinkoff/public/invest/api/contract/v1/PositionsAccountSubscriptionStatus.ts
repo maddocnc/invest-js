@@ -1,8 +1,0 @@
-// Original file: investAPI/src/docs/contracts/operations.proto
-
-export enum PositionsAccountSubscriptionStatus {
-  POSITIONS_SUBSCRIPTION_STATUS_UNSPECIFIED = 0,
-  POSITIONS_SUBSCRIPTION_STATUS_SUCCESS = 1,
-  POSITIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND = 2,
-  POSITIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR = 3,
-}

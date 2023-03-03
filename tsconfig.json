@@ -1,33 +1,29 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "./build",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
+    "target": "es5",
+    "module": "es2020",
+    "moduleResolution": "node",
+    "lib": [
+      "es2015",
+      "esnext",
+      "esnext.asynciterable",
+      "dom"
+    ],
+    "composite": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "sourceMap": true,
     "strict": true,
-    "module": "commonjs",
-    "target": "es5",
-    "moduleResolution": "node",
-    "noUnusedParameters": true,
-    "esModuleInterop": true,
-    "outDir": "build"
+    "noImplicitAny": true,
+    "rootDir": "./src",
+    "declarationDir": "types",
+    "outDir": "dist",
   },
   "exclude": [
-    "example",
-    "build"
+    "node_modules",
+    "tests",
   ],
-  "watchOptions": {
-    // Use native file system events for files and directories
-    "watchFile": "useFsEvents",
-    "watchDirectory": "useFsEvents",
-    // Poll files for updates more frequently
-    // when they're updated a lot.
-    "fallbackPolling": "dynamicPriority",
-    // Don't coalesce watch notification
-    "synchronousWatchDirectory": true,
-    // Finally, two additional settings for reducing the amount of possible
-    // files to track  work from these directories
-    "excludeDirectories": ["**/node_modules", "build"]
-  }
+  "include": [
+    "./src/**/*.ts",
+  ]
 }

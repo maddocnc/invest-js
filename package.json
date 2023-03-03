@@ -1,25 +1,24 @@
 {
-  "name": "@tinkoff/invest-js",
-  "version": "1.3.0",
-  "description": "Tinkoff Invest OpenAPI Client",
-  "types": "./build/index.d.ts",
-  "engines": {
-    "node": ">=10.0.0"
+  "name": "@maddocnc/invest-js",
+  "version": "1.3.0-a",
+  "description": "Tinkoff Invest OpenAPI GRPC Client",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "browser": {
+    "./dist/cjs/index.js": "./dist/cjs/index.browser.js",
+    "./dist/esm/index.js": "./dist/esm/index.browser.js"
   },
-  "directories": {
-    "example": "example"
-  },
-  "exports": {
-    ".": "./build/index.js"
-  },
+  "types": "./types/index.d.ts",
+  "sideEffects": false,
   "scripts": {
-    "build": "sh ./tools/build.sh",
-    "gen": "sh ./tools/gen.sh",
+    "prebuild": "git submodule update --init --recursive",
+    "build": "sh -c ./build.sh",
+    "gen": "sh scripts/gen.sh",
     "watch": "tsc --watch"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tinkoff/invest-js"
+    "url": "https://github.com/maddocnc/invest-js"
   },
   "keywords": [
     "trading",
@@ -29,13 +28,15 @@
   ],
   "license": "Apache-2.0",
   "devDependencies": {
-    "ts-node": "^8.8.1"
+    "esbuild": "^0.17.10",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.1"
   },
   "dependencies": {
     "@grpc/grpc-js": "^1.5.0",
-    "@grpc/proto-loader": "^0.6.9",
-    "grpc-tools": "^1.11.2",
+    "@grpc/proto-loader": "^0.7.5",
     "fsevents": "^2.0.7",
+    "grpc-tools": "^1.11.2",
     "prettier": "^2.0.5",
     "tslib": "^2.0.0",
     "typescript": "^4.3.4"
